@@ -1,10 +1,7 @@
 # Hermes
 
-[![Build Status](https://travis-ci.org/matcornic/hermes.svg?branch=master)](https://travis-ci.org/matcornic/hermes)
-[![Go Report Card](https://goreportcard.com/badge/github.com/matcornic/hermes)](https://goreportcard.com/report/github.com/matcornic/hermes)
-[![Go Coverage](https://codecov.io/github/matcornic/hermes/coverage.svg)](https://codecov.io/github/matcornic/hermes/)
-[![Godoc](https://godoc.org/github.com/matcornic/hermes?status.svg)](https://godoc.org/github.com/matcornic/hermes)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmatcornic%2Fhermes.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmatcornic%2Fhermes?ref=badge_shield)
+[![Go Report Card](https://goreportcard.com/badge/github.com/matcornic/hermes)](https://goreportcard.com/report/github.com/unknowns24/hermes)
+[![Godoc](https://godoc.org/github.com/matcornic/hermes?status.svg)](https://godoc.org/github.com/unknowns24/hermes)
 
 Hermes is the Go port of the great [mailgen](https://github.com/eladnava/mailgen) engine for Node.js. Check their work, it's awesome!
 It's a package that generates clean, responsive HTML e-mails for sending transactional e-mails (welcome e-mails, reset password e-mails, receipt e-mails and so on), and associated plain text fallback.
@@ -18,7 +15,7 @@ It's a package that generates clean, responsive HTML e-mails for sending transac
 First install the package:
 
 ```
-go get -u github.com/unknowns24/hermes
+go get -u github.com/unknowns24/pkg/mails
 ```
 
 > Starting from release _v2.0.0_, Hermes uses [Go modules](https://github.com/golang/go/wiki/Modules). The latest version of Hermes requires at least Go 1.11 with gomodules enabled.
@@ -31,7 +28,7 @@ Then, start using the package by importing and configuring it:
 h := hermes.Hermes{
     // Optional Theme
     // Theme: new(Default)
-    Product: hermes.Brand{
+    Brand: hermes.Branding{
         // Appears in header & footer of e-mails
         Name: "Hermes",
         Link: "https://example-hermes.com/",
@@ -79,7 +76,7 @@ if err != nil {
 }
 
 // Optionally, preview the generated HTML e-mail by writing it to a local file
-err = ioutil.WriteFile("preview.html", []byte(emailBody), 0644)
+err = os.WriteFile("preview.html", []byte(emailBody), 0644)
 if err != nil {
     panic(err) // Tip: Handle error with something else than a panic ;)
 }
@@ -153,10 +150,6 @@ The following open-source themes are bundled with this package:
 
 <img src="assets/default/welcome.png" height="200" /> <img src="assets/default/reset.png" height="200" /> <img src="assets/default/receipt.png" height="200" />
 
--   `flat`, slightly modified from [Postmark Transactional Email Templates](https://github.com/wildbit/postmark-templates)
-
-<img src="assets/flat/welcome.png" height="200" /> <img src="assets/flat/reset.png" height="200" /> <img src="assets/flat/receipt.png" height="200" />
-
 ## RTL Support
 
 To change the default text direction (left-to-right), simply override it as follows:
@@ -165,7 +158,7 @@ To change the default text direction (left-to-right), simply override it as foll
 // Configure hermes by setting a theme and your product info
 h := hermes.Hermes {
     // Custom text direction
-    TextDirection: hermes.TDRightToLeft,
+    TextDirection: "ltr" | "rtl" ,
 }
 ```
 
@@ -200,7 +193,7 @@ To customize the `Copyright`, override it when initializing `Hermes` within your
 h := hermes.Hermes{
     // Optional Theme
     // Theme: new(Default)
-    Product: hermes.Brand{
+    Brand: hermes.Branding{
         // Appears in header & footer of e-mails
         Name: "Hermes",
         Link: "https://example-hermes.com/",
@@ -217,7 +210,7 @@ To use a custom fallback text at the end of the email, change the `TroubleText` 
 h := hermes.Hermes{
     // Optional Theme
     // Theme: new(Default)
-    Product: hermes.Brand{
+    Brand: hermes.Branding{
         // Custom trouble text
         TroubleText: "If the {ACTION}-button is not working for you, just copy and paste the URL below into your web browser."
     },
@@ -406,9 +399,10 @@ This is helpful when your application needs sending e-mails, wrote on-the-fly by
 
 > Simply sending the `X-Entity-Ref-ID` header with your e-mails will prevent grouping / truncation.
 
-## Contributing
+## Acknowledgements:
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+This is an updated version of the Matcornic´s hermes project.
+Special thanks to [matcornic](https://github.com/matcornic) for the original work.
 
 ## License
 

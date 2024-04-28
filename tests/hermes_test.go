@@ -361,7 +361,7 @@ func (ed *WithFreeMarkdownContent) assertHTMLContent(t *testing.T, r string) {
 	assert.Contains(t, r, "Yours truly", "Should find signature with 'Yours truly' which is default")
 	assert.Contains(t, r, "Jon Snow", "Should find title with 'Jon Snow'")
 	assert.Contains(t, r, "<em>Hermes</em> service will shutdown", "Should find quote as HTML formatted content")
-	assert.Contains(t, r, "<td align=\"center\">2AM to 3AM</td>", "Should find cell content as HTML formatted content")
+	assert.Contains(t, r, "<td align-items=\"center\">2AM to 3AM</td>", "Should find cell content as HTML formatted content")
 	assert.Contains(t, r, "<a href=\"mailto:support@hermes-example.com\">support@hermes-example.com</a>", "Should find link of mailto as HTML formatted content")
 	assert.Contains(t, r, "An intro that should be kept even with FreeMarkdown", "Should find intro even with FreeMarkdown")
 	assert.Contains(t, r, "An outro that should be kept even with FreeMarkdown", "Should find outro even with FreeMarkdown")

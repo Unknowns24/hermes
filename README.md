@@ -110,11 +110,11 @@ Copyright © 2017 Hermes. All rights reserved.
 
 ## More Examples
 
--   [Welcome with button](examples/welcome.go)
--   [Welcome with invite code](examples/invite_code.go)
--   [Receipt](examples/receipt.go)
--   [Password Reset](examples/reset.go)
--   [Maintenance](examples/maintenance.go)
+-   [Welcome with button](examples/mails/welcome.go)
+-   [Welcome with invite code](examples/mails/invite_code.go)
+-   [Receipt](examples/mails/receipt.go)
+-   [Password Reset](examples/mails/reset.go)
+-   [Maintenance](examples/mails/maintenance.go)
 
 To run the examples, go to `examples` folder, then run `go run -a *.go`. HTML and Plaintext example should be created in given theme folders.
 
@@ -217,7 +217,7 @@ h := hermes.Hermes{
 }
 ```
 
-Since `v2.1.0`, Hermes is automatically inlining all CSS to improve compatibility with email clients, thanks to [Premailer](https://github.com/vanng822/go-premailer/premailer).
+Hermes is automatically inlining all CSS to improve compatibility with email clients, thanks to [Premailer](https://github.com/vanng822/go-premailer/premailer).
 You can disable this feature by setting `DisableCSSInlining` of `Hermes` struct to `true`.
 
 ```go
